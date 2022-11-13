@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fffef7;
+  letter-spacing: 0.22em;
+}
+
+div {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
+}
+
+form {
+  /* added temporarily for the api test forms to look a little better */
+  display: flex;
+  flex-direction: column;
+}
+
+.fileOutput__container {
+  white-space: pre-line; /* recognizes <br /> in the HTML and will line break it. Pretty coolllll*/
+}
+
+.highlighted{
+  background-color: #89DBC7;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  letter-spacing: 0.22rem;
+}
+input[type="text"] {
+  padding: 1rem;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 50px;
+}
+
+p {
+  margin: 0;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */

@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { Container, Wrapper } from './styles/globals';
 import File from './components/File/File';
 import TopBar from './components/TopBar/TopBar';
 import styled from 'styled-components/native';
 import { colors } from './styles/globals';
-import TabBar from './components/TabBar/TabBar';
 
 const Content = styled.View`
   display: flex;
@@ -20,33 +19,20 @@ const Content = styled.View`
   padding-bottom: 50px;
 `
 
-const FileSectionCont = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-`
-
 export default function App() {
   return (
-    <ScrollView>
+    <>
     <TopBar />
     <View>
-      <TabBar/>
 
-      <FileSectionCont>
-        <File></File>
-        <File></File>
-        <File></File>
-        <File></File>
-        <File></File>
-        <File></File>
-        <File></File>
-        <File></File>
-      </FileSectionCont>
+
+      <Content>
+      <Text> Title </Text>
+      <Text>Open up App.js to start working on your app! dsfd sdf a dfs d ds fds sdfsdfa sdf sd fsd f dsf dasf sd f sdf d dsf sdf sd fasd fs dfasd fsd fsd sf dsf sfffd sdffffffffsdf sdfsdfd</Text>
+      </Content>
 
       <StatusBar style="auto" />
     </View>
-    </ScrollView>
+    </>
   );
 }
