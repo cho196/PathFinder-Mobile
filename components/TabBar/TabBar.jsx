@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image } from 'react-native';
 import { Flexbox } from "../../styles/globals";
-import { btnData } from "./data";
 import { useState } from "react";
+import { colors } from '../../styles/globals';
 
 const TabBarCont = styled(Flexbox)`
   display: flex;
@@ -16,7 +16,6 @@ const TabBarCont = styled(Flexbox)`
 
 const FolderNameCont = styled.View`
   border-bottom: black;
-  background: orange;
   width: 100px;
 `
 
@@ -26,7 +25,7 @@ const ButtonCont = styled.View`
 `
 
 const Line = styled.View`
-  background-color: orange;
+  background-color: ${colors.lightGrey};
   width: 50px;
   height: 5px;
 `
@@ -45,7 +44,9 @@ export default function TabBar({}) {
               <Line />
             </ButtonCont>
             <ButtonCont>
-              <Text> + </Text>
+              <Image source={require('../../assets/plus.png')}
+              style = {{ width: 10, height: 10 }}
+              />
               <Line /> 
             </ButtonCont>
       </TabBarCont>

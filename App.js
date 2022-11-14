@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
-import { Container, Wrapper } from './styles/globals';
 import File from './components/File/File';
 import TopBar from './components/TopBar/TopBar';
 import styled from 'styled-components/native';
@@ -43,6 +42,8 @@ export default function App() {
         <File></File>
         <File></File>
         <File></File>
+        <File></File>
+        <File></File>        
       </FileSectionCont>
 
       <StatusBar style="auto" />

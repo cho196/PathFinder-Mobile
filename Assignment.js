@@ -5,6 +5,7 @@ import File from './components/File/File';
 import TopBar from './components/TopBar/TopBar';
 import styled from 'styled-components/native';
 import { colors } from './styles/globals';
+import { Route, Router } from 'react-native';
 
 const Content = styled.View`
   display: flex;

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import styled from 'styled-components/native';
 import { colors, textData } from '../../styles/globals';
 
@@ -26,9 +26,13 @@ export default function TopBar ({}) {
 return (
     <TopBarCont>
         <TopBarContent>
-        <Text> go back </Text>
+        <Image source={require('../../assets/arrowleft.png')}
+        style = {{ width: 20, height: 20 }}
+        />
         <Header> Assignment 1 </Header>
-        <Text> ... </Text>
+        <Image source={require('../../assets/ellipsis.png')}
+        style = {{ width: 25, height: 25 }}
+        />
         </TopBarContent>
     </TopBarCont>
 )
