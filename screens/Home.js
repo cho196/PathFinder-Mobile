@@ -21,7 +21,7 @@ const LinkText = styled.Text`
 export default function Home() {
   return (
     <Wrapper>
-      <Image></Image>
+      <Image source={require("../assets/logo.png")}></Image>
       <Text>Reformat your study materials!</Text>
       <Input
         placeholder="Enter your email"
