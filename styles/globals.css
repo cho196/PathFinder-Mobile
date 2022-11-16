@@ -32,8 +32,8 @@ form {
   white-space: pre-line; /* recognizes <br /> in the HTML and will line break it. Pretty coolllll*/
 }
 
-.highlighted{
-  background-color: #89DBC7;
+.highlighted {
+  background-color: #89dbc7;
   color: black;
 }
 

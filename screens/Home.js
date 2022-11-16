@@ -3,6 +3,11 @@ import styled from "styled-components/native";
 import { Wrapper } from "../styles/globals";
 import { TextInput, View, Image, TouchableOpacity, Text } from "react-native";
 
+const style = require("../styles/style");
+const StyledWrapper = styled(Wrapper)`
+  background-color: #fffef6;
+`;
+
 const Input = styled.TextInput`
   border: 2rem solid black;
   border-radius: 30rem;
@@ -12,6 +17,7 @@ const Input = styled.TextInput`
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
+  background-color: #fffffc;
 `;
 
 const Header = styled.Text`
@@ -35,7 +41,7 @@ const ButtonText = styled.Text`
 
 export default function Home({ navigation }) {
   return (
-    <Wrapper>
+    <StyledWrapper>
       <Image source={require("../assets/logo.png")}></Image>
       <Header>Reformat your study materials!</Header>
       <Input
@@ -43,9 +49,9 @@ export default function Home({ navigation }) {
         keyboardType="email-address"
       ></Input>
       <Input placeholder="Enter your password" secureTextEntry="true"></Input>
-      <NewButton onPress={() => navigation.navigate("Page")}>
+      <NewButton onPress={() => navigation.navigate("Library")}>
         <ButtonText>Log In</ButtonText>
       </NewButton>
-    </Wrapper>
+    </StyledWrapper>
   );
 }

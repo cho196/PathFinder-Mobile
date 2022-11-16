@@ -25,8 +25,8 @@ const FileSectionCont = styled.View`
   justify-content: space-evenly;
   flex-wrap: wrap;
 `;
-const Stack = createNativeStackNavigator();
-export default function App() {
+
+export default function Library({}) {
   return (
     <ScrollView>
       <TopBar />
