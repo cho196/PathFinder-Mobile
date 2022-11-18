@@ -40,17 +40,11 @@ const ButtonText = styled.Text`
   font-size: 18pt;
 `;
 
-export default function Home({ navigation }) {
-  useEffect(() => {
-    navigation.setOptions({ tabBarStyle: { display: "none" } });
-  }, []);
+export default function User({ navigation }) {
   return (
     <StyledWrapper>
       <Image source={require("../assets/logo.png")}></Image>
-      <Header>Review your study materials!</Header>
-      <NewButton onPress={() => navigation.navigate("Library")}>
-        <ButtonText>Get Started</ButtonText>
-      </NewButton>
+      <Header>USER PAGE</Header>
     </StyledWrapper>
   );
 }

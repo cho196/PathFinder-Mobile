@@ -4,8 +4,8 @@ export const Wrapper = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-import styled from 'styled-components/native';
-`
+`;
+
 export const textData = {
   lineHeight: "150%",
   letterSpacing: "0.22em",
@@ -23,7 +23,7 @@ export const logoData = {
   logoHorizontal: "../images/logo-horizontal.svg",
   logoVertical: "../images/logo-vertical.svg",
   logoIcon: "../images/logo-icon.svg",
-  logoTypeface: "../images/logo-typeface.svg"
+  logoTypeface: "../images/logo-typeface.svg",
 };
 
 export const colors = {
@@ -42,7 +42,7 @@ export const colors = {
   darkGrey: "#3E3E3E",
   lightGrey: "#E1E1E1",
   buttonLightGrey: "#F5F5F5",
-  grey: "#D9D9D9"
+  grey: "#D9D9D9",
 };
 
 // export const Flexbox = styled.View`
@@ -70,15 +70,16 @@ export const BodyText = styled.Text`
   letter-spacing: ${textData.letterSpacing};
 `;
 
-export const Container = styled(Flexbox)`
-  width: ${(props) => props.width || "90%"};
-  max-width: 100%;
-  height: ${(props) => props.height || "fit-content"};
-  padding: 2em;
-  border: 2rem solid ${colors.darkGray};
-  background-color: ${(props) => props.backgroundColor || colors.backgroundWhite};
-  border-radius: 2rem;
-  gap: ${(props) => props.gap};
-  // white-space: pre-line;
-  // align-items: ${(props) => props.alignItems || "flex-start"}
-`;
+// export const Container = styled(Flexbox)`
+//   width: ${(props) => props.width || "90%"};
+//   max-width: 100%;
+//   height: ${(props) => props.height || "fit-content"};
+//   padding: 2em;
+//   border: 2rem solid ${colors.darkGray};
+//   background-color: ${(props) =>
+//     props.backgroundColor || colors.backgroundWhite};
+//   border-radius: 2rem;
+//   gap: ${(props) => props.gap};
+//   // white-space: pre-line;
+//   // align-items: ${(props) => props.alignItems || "flex-start"}
+// `;

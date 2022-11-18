@@ -26,28 +26,35 @@ const FileSectionCont = styled.View`
   flex-wrap: wrap;
 `;
 
-export default function Library({}) {
+const StyledView = styled.ScrollView`
+  background-color: #fffef6;
+  height: 100%;
+`;
+
+export default function Library({ navigation, fileArr = [] }) {
   return (
-    <ScrollView>
-      <TopBar />
+    <StyledView>
+      <TopBar
+        text="Library"
+        color="transparent"
+        handleLeft={() => navigation.navigate("Home")}
+      />
       <View>
         <TabBar />
 
         <FileSectionCont>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
-          <File></File>
+          {fileArr.map((o, i) => (
+            <File
+              key={i}
+              text={o.text}
+              handlePress={() => navigation.navigate("Assignment")}
+            ></File>
+          ))}
+          <File handlePress={() => navigation.navigate("Assignment")} />
         </FileSectionCont>
 
         <StatusBar style="auto" />
       </View>
-    </ScrollView>
+    </StyledView>
   );
 }
