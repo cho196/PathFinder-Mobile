@@ -8,21 +8,22 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-export function Tabs() {
-  return (
-    <Tab.Navigator initialRouteName="Library">
-      <Tab.Screen name="User" component={User} />
-      <Tab.Screen name="Library" component={Library} />
-      <Tab.Screen name="Assignment" component={Assignment} />
-    </Tab.Navigator>
-  );
-}
+// export function Tabs() {
+//   return (
+//     <Tab.Navigator initialRouteName="Library">
+//       <Tab.Screen name="User" component={User} />
+//       <Tab.Screen name="Library" component={Library} />
+//       <Tab.Screen name="Assignment" component={Assignment} />
+//     </Tab.Navigator>
+//   );
+// }
 export default function App() {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Library" component={Tabs} />
+        <Stack.Screen name="Library" component={Library} />
+        <Stack.Screen name="Assignment" component={Assignment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

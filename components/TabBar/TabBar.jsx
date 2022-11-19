@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { StyleSheet, Text, Image } from "react-native";
+import { StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { Wrapper } from "../../styles/globals";
 import { useState } from "react";
 import { colors } from "../../styles/globals";
@@ -18,36 +18,32 @@ const FolderNameCont = styled.View`
   width: 100px;
 `;
 
-const ButtonCont = styled.View`
-  display: flex;
+const StyledTouchableOpacity = styled.TouchableOpacity`
   align-items: center;
 `;
 
 const Line = styled.View`
-  background-color: ${colors.lightGrey};
-  width: 50px;
+  background-color: ${((props) => props.sel && colors.secondaryBlue) ||
+  colors.lightGrey};
+  width: 100px;
   height: 5px;
 `;
 
-export default function TabBar({}) {
+export default function TabBar({ tabArr = [] }) {
+  const [sel, setSel] = useState(0);
   return (
     <Wrapper>
       <TabBarCont>
-        <ButtonCont>
-          <Text> Folder 1</Text>
+        {/* {tabArr.map((o, i) => (
+          <StyledTouchableOpacity key={i} onPress={() => setSel(i)}>
+            <Text>{o.text}</Text>
+            <Line sel={sel} />
+          </StyledTouchableOpacity>
+        ))} */}
+        <StyledTouchableOpacity onPress={() => {}}>
+          <Text>placeholder</Text>
           <Line />
-        </ButtonCont>
-        <ButtonCont>
-          <Text> Folder 2</Text>
-          <Line />
-        </ButtonCont>
-        <ButtonCont>
-          <Image
-            source={require("../../assets/plus.png")}
-            style={{ width: 10, height: 10 }}
-          />
-          <Line />
-        </ButtonCont>
+        </StyledTouchableOpacity>
       </TabBarCont>
     </Wrapper>
   );

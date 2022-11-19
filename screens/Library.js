@@ -6,19 +6,6 @@ import styled from "styled-components/native";
 import { colors } from "../styles/globals";
 import TabBar from "../components/TabBar/TabBar";
 
-const Content = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1rem solid ${colors.darkGrey};
-  border-radius: 18px;
-  margin: 25px;
-  margin-top: 65px;
-  padding: 10px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-`;
-
 const FileSectionCont = styled.View`
   display: flex;
   flex-direction: row;
