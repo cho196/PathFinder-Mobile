@@ -10,12 +10,16 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import { colors } from "../../styles/globals";
+import { useEffect } from "react";
 
 const FileCont = styled.View`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 10px;
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
 `;
 
 const PreviewBox = styled.View`
@@ -26,21 +30,23 @@ const PreviewBox = styled.View`
 `;
 
 const BottomCont = styled.View`
-  width: 140px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 10px;
 `;
 
-export default function File({ handlePress = () => {}, text = "placeholder" }) {
+export default function File({
+  handlePress = () => {},
+  fileName = "placeholder",
+  fileId = null,
+}) {
   return (
     <FileCont>
-      <TouchableOpacity onPress={handlePress}>
-        <PreviewBox></PreviewBox>
-      </TouchableOpacity>
+      <TouchableOpacity onPress={handlePress(fileId)}></TouchableOpacity>
       <BottomCont>
-        <Text>{text}</Text>
+        <Text>{fileName}</Text>
         <Image
           source={require("../../assets/ellipsis.png")}
           style={{ width: 15, height: 15 }}

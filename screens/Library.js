@@ -5,12 +5,15 @@ import TopBar from "../components/TopBar/TopBar";
 import styled from "styled-components/native";
 import { colors } from "../styles/globals";
 import TabBar from "../components/TabBar/TabBar";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import * as mainHandler from "../handlers/main";
 
 const FileSectionCont = styled.View`
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledView = styled.ScrollView`
@@ -19,6 +22,52 @@ const StyledView = styled.ScrollView`
 `;
 
 export default function Library({ navigation, fileArr = [] }) {
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://adonis-production-78c7.up.railway.app/api/db/files/userid/9"
+      )
+      .then((res) => {
+        setFiles(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  function onSelectFile(fileId) {
+    mainHandler.handleGetFile(fileId, (res) => {
+      let { fileData, settingData } = res.data;
+      router.push(
+        {
+          pathname: `/assignment`,
+          query: {
+            fileData: JSON.stringify(fileData),
+            settingData: JSON.stringify(settingData),
+            folderArray: JSON.stringify(folders),
+          },
+        },
+        "/converted"
+      );
+    });
+  }
+
+  let fileList = files.map((file) => {
+    return (
+      <File
+        {...file}
+        key={file.file_id}
+        fileName={file.file_name}
+        fileId={file.file_id}
+        folderId={file.folder_id}
+        fileContent={file.file_content}
+        handlePress={onSelectFile}
+      ></File>
+    );
+  });
+
   return (
     <StyledView>
       <TopBar
@@ -27,17 +76,16 @@ export default function Library({ navigation, fileArr = [] }) {
         handleLeft={() => navigation.navigate("Home")}
       />
       <View>
-        <TabBar />
-
         <FileSectionCont>
-          {fileArr.map((o, i) => (
+          {/* {fileArr.map((o, i) => (
             <File
               key={i}
               text={o.text}
               handlePress={() => navigation.navigate("Assignment")}
             ></File>
           ))}
-          <File handlePress={() => navigation.navigate("Assignment")} />
+          <File handlePress={() => navigation.navigate("Assignment")} /> */}
+          {fileList}
         </FileSectionCont>
 
         <StatusBar style="auto" />
