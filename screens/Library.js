@@ -37,20 +37,32 @@ export default function Library({ navigation, fileArr = [] }) {
       });
   }, []);
 
+  function handleGetFile(fileId, cb) {
+    try {
+      return axios({
+        method: "GET",
+        url: `https://adonis-production-78c7.up.railway.app/api/db/file/${fileId}`,
+      })
+        .then((response) => {
+          console.log(response);
+          cb(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   function onSelectFile(fileId) {
-    mainHandler.handleGetFile(fileId, (res) => {
-      let { fileData, settingData } = res.data;
-      router.push(
-        {
-          pathname: `/assignment`,
-          query: {
-            fileData: JSON.stringify(fileData),
-            settingData: JSON.stringify(settingData),
-            folderArray: JSON.stringify(folders),
-          },
-        },
-        "/converted"
-      );
+    handleGetFile(fileId, (res) => {
+      let { fileData } = res.data;
+
+      navigation.navigate("Assignment", {
+        fileContent: fileData.file_content,
+        fileTitle: fileData.file_name,
+      });
     });
   }
 

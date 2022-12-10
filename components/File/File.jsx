@@ -12,14 +12,14 @@ import styled from "styled-components/native";
 import { colors } from "../../styles/globals";
 import { useEffect } from "react";
 
-const FileCont = styled.View`
+const FileCont = styled.TouchableOpacity`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 10px;
   width: 100%;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 25px;
+  background-color: ${colors.backgroundYellow};
 `;
 
 const PreviewBox = styled.View`
@@ -43,15 +43,8 @@ export default function File({
   fileId = null,
 }) {
   return (
-    <FileCont>
-      <TouchableOpacity onPress={handlePress(fileId)}></TouchableOpacity>
-      <BottomCont>
-        <Text>{fileName}</Text>
-        <Image
-          source={require("../../assets/ellipsis.png")}
-          style={{ width: 15, height: 15 }}
-        />
-      </BottomCont>
+    <FileCont onPress={() => handlePress(fileId)}>
+      <Text>{fileName}</Text>
     </FileCont>
   );
 }

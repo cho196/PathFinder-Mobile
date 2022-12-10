@@ -21,20 +21,18 @@ const Content = styled.View`
   padding-bottom: 25px;
 `;
 
-export default function Assignment({ navigation }) {
+export default function Assignment({ navigation, route }) {
+  const { fileContent, fileTitle, settingData } = route.params;
   return (
-    <StyledView>
+    <StyledView fileName="" fileData="">
       <TopBar
         color={colors.primaryBlue}
         handleLeft={() => navigation.navigate("Library")}
+        text={fileTitle}
       />
       <Content>
-        <Text>Placeholder</Text>
-        <Text>
-          Open up App.js to start working on your app! dsfd sdf a dfs d ds fds
-          sdfsdfa sdf sd fsd f dsf dasf sd f sdf d dsf sdf sd fasd fs dfasd fsd
-          fsd sf dsf sfffd sdffffffffsdf sdfsdfd
-        </Text>
+        <Text>{fileTitle}</Text>
+        <Text>{fileContent}</Text>
       </Content>
 
       <StatusBar style="auto" />
